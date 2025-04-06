@@ -30,8 +30,8 @@ app.add_middleware(
 def root():
     return {"message": "hellow World!"}
 
-api_key = 'AIzaSyAc3hlJPHtBuWWWI8-MikMj2vhz3vns02I'
-search_engine_id = '318236dbf50904ff1'
+api_key = ''
+search_engine_id = ''
 
 def word_counter(text):
     
@@ -75,6 +75,7 @@ def generate_summary_with_query(text, model,query):
 
 
 def google_search(api_key,search_engine_id,query,**params):
+    BASE_URL = ''
     final_query = query + ''' 
     -site:quora.com
     -site:reddit.com 
@@ -90,7 +91,7 @@ def google_search(api_key,search_engine_id,query,**params):
     -site:nytimes.com
     -site:medium.com 
     -site:imdb.com'''
-    base_url = 'https://www.googleapis.com/customsearch/v1'
+    base_url = BASE_URL
     params = {
         'key':api_key,
         'cx':search_engine_id,
@@ -180,8 +181,9 @@ async def send_response(request: str = Form(...)):
     
     # print('no_of_articles',no_of_articles)
     # no_of_articles = int(no_of_articles)
-    
-    mongo_client = MongoClient('mongodb+srv://xpecture:G9IPe9ZGDT2d09tm@gcp-cluster.hnrvs.mongodb.net/?retryWrites=true&w=majority&appName=gcp-cluster')
+    MONGODB_CONNECTION_STRING = ''
+    USER_AGENT = ''
+    mongo_client = MongoClient(MONGODB_CONNECTION_STRINGA)
     CP5105_DB = mongo_client['CP5105_DB']
     User_Data = CP5105_DB['CP5105_COLL']
     
@@ -206,7 +208,7 @@ async def send_response(request: str = Form(...)):
         link, 
         data=None, 
         headers={
-            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
+            'User-Agent': USER_AGENT
             }
         )
         try:
@@ -246,7 +248,8 @@ async def send_response(request: str = Form(...)):
 # async def send_response(request: str = Form(...), no_of_articles : str = Form(...)):
 async def send_response(request: str = Form(...)):
     # print('no_of_articles',no_of_articles)
-    mongo_client = MongoClient('mongodb+srv://xpecture:G9IPe9ZGDT2d09tm@gcp-cluster.hnrvs.mongodb.net/?retryWrites=true&w=majority&appName=gcp-cluster')
+    MONGODB_CONNECTION_STRING = ''
+    mongo_client = MongoClient(MONGODB_CONNECTION_STRING)
     CP5105_DB = mongo_client['CP5105_DB']
     User_Data = CP5105_DB['CP5105_COLL']
     
@@ -302,7 +305,8 @@ async def send_response(request: str = Form(...)):
 @app.get("/find_one")
 async def find_querydata(query: str = Form(...)):
     #  Database Configuration
-    mongo_client = MongoClient('mongodb+srv://xpecture:G9IPe9ZGDT2d09tm@gcp-cluster.hnrvs.mongodb.net/?retryWrites=true&w=majority&appName=gcp-cluster')
+    MONGODB_CONNECTION_STRING = ''
+    mongo_client = MongoClient(MONGODB_CONNECTION_STRING)
     CP5105_DB = mongo_client['CP5105_DB']
     User_Data = CP5105_DB['CP5105_COLL']
     query_data = User_Data.find_one({'query': query})
@@ -314,7 +318,8 @@ async def find_querydata(query: str = Form(...)):
 @app.get("/find_all")
 async def findall_querydata():
     #  Database Configuration
-    mongo_client = MongoClient('mongodb+srv://xpecture:G9IPe9ZGDT2d09tm@gcp-cluster.hnrvs.mongodb.net/?retryWrites=true&w=majority&appName=gcp-cluster')
+    MONGODB_CONNECTION_STRING = ''
+    mongo_client = MongoClient(MONGODB_CONNECTION_STRING)
     CP5105_DB = mongo_client['CP5105_DB']
     User_Data = CP5105_DB['CP5105_COLL']
     query_data = User_Data.find()
