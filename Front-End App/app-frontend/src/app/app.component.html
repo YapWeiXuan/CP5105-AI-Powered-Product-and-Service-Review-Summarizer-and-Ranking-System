@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<!-- <div *ngIf="query_loading(); else query_NOT_loading">
+  <mat-progress-spinner mode="indeterminate" color="primary" [strokeWidth]="5" style="margin:auto;  margin-left: auto; margin-right: auto;"></mat-progress-spinner>
+</div> -->
+<!-- <ng-template #query_NOT_loading> -->
+<div style="text-align:center; margin-left: auto; margin-right: auto; margin:auto; font-family: Georgia, serif; font-size: 20px;">
+  <b>Enter</b> Query below and <b>Click</b> on Search icon to get Ranking List OR <b>Reset</b> the web page after getting Ranking List. <b>Example Query:</b> What are the 5 best board games for children?
+</div>
+<mat-toolbar>
+  <app-search-bar style="margin-top: 15px;"></app-search-bar>
+</mat-toolbar>
+<!-- <div>
+  query_loading() : {{query_loading()}}
+</div>
+<div>
+  query_received : {{query_received()}}
+</div>
+<div>
+  links_received : {{links_received()}}
+</div> -->
+<div *ngIf="query_loading(); else elseBlock" style="margin-left: auto; margin-right: auto; margin:auto; display : flex; flex-direction : row; padding-right: 50px;padding-left: 50px;">
+  <h2 style="width:50%; padding-right: 30px;padding-left: 30px; text-align:center; padding-top : 10px">Top Web Article Links</h2>
+  <h2 style="width:50%; padding-right: 30px;padding-left: 30px; text-align:center; padding-top : 10px">Generated Response</h2>
+</div>
+<div *ngIf="query_loading();" style="margin-left: auto; margin-right: auto; padding-top : 5px; margin:auto; display : flex; flex-direction : row; padding-right: 50px;padding-left: 50px;">
+  <!-- <div style="display:inline-block;width:50%;float:left;position:relative"> -->
+  <div style="width:50%; padding-right: 30px;padding-left: 30px;" *ngIf="!links_received(); else links_loaded">
+    <mat-progress-spinner mode="indeterminate" color="primary" [strokeWidth]="5" style="margin:auto;  margin-left: auto; margin-right: auto;"></mat-progress-spinner>
+  </div>
+  <ng-template #links_loaded>
+    <app-links-table style="padding-right: 30px;padding-left: 30px; margin-left: auto; margin-right: auto;"></app-links-table>
+  </ng-template>
+
+  <div style="width:50%;padding-right: 30px;padding-left: 30px;" *ngIf="!query_received(); else review_loaded">
+    <mat-progress-spinner mode="indeterminate" color="primary" [strokeWidth]="5" style="margin:auto;  margin-left: auto; margin-right: auto;"></mat-progress-spinner>
+  </div>
+  <ng-template #review_loaded>
+    <app-review-table style="padding-right: 30px;padding-left: 30px; margin-left: auto; margin-right: auto; "></app-review-table>
+  </ng-template>
+
+</div>
+  <ng-template #elseBlock>
+    <!-- <div style="text-align:center; margin-left: auto; margin-right: auto; margin:auto; font-family: Georgia, serif; font-size: 25px;">
+      Enter a Query in the search bar above. Example Queries: What are the 5 best board games for children?
+    </div> -->
+  </ng-template>
+<!-- </ng-template> -->
+
+<!-- <mat-toolbar>
+  <app-search-bar></app-search-bar>
+</mat-toolbar>
+<div *ngIf="query_received; else elseBlock">
+  <app-search-table></app-search-table>
+</div>
+<ng-template #elseBlock>Enter a Query in the search bar above. Example Queries: What are the 5 best board games for children? </ng-template> -->
+
+

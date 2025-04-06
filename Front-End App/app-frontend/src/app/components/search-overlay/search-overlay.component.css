@@ -1,0 +1,17 @@
+.overlay-container{
+  /* overflow: hidden; */
+  /* border-collapse: separate; */
+  border-radius: 0px 0px 32px 32px;
+  min-width: 1108px;
+  /* 459px */
+  /* min-width: 400px; */
+  /* border: 2px shadow black; */
+
+  box-shadow:
+  0 0 1px black,
+  inset 0 0 2px black;
+
+  background:white;
+  padding-bottom: 16px;
+  border-width: 2px;
+}

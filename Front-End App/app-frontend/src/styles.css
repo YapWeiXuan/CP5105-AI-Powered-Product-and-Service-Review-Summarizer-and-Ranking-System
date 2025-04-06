@@ -1,0 +1,114 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  --mat-toolbar-container-background-color: ghostwhite;
+}
+
+
+.links-table {
+  border-collapse: collapse;
+  /* margin: 25px 0; */
+  font-size: 1rem;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  box-shadow: 0 0 10px  rgba(0,0,0,0.3);
+  max-width: 800px;
+  min-height: 200px;
+  max-height: 300px;
+
+}
+
+.links-table thead tr {
+  background-color: #191970;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.links-table th{
+  padding: 12px 15px;
+}
+
+.links-table td {
+  padding: 12px 15px;
+  max-height: 300px;
+
+}
+
+.links-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.links-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.links-table tbody tr:last-of-type {
+  border-bottom: 2px solid #191970;
+}
+
+.links-table tbody tr.active-row {
+  font-weight: bold;
+}
+
+
+
+/* .mat-typography h3 {
+  margin: 0;
+
+} */
+
+/* .mat-table {
+  table-layout: fixed;
+  column-width: 30px !important;
+  overflow: scroll;
+  min-width: 70% !important;
+  column-width: 70% !important ;
+  position : relative !important;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 20px !important;
+} */
+
+/* .mat-table tr:first-child th:first-child {
+  border
+  border-top-left-radius: 1rem !important ;
+} */
+
+/* .mat-header-row {
+  font-size: larger;
+  font-weight: bolder;
+  justify-content: center;
+}
+
+.mat-cell {
+  font-size: large !important ;
+
+}
+
+
+.mat-mdc-header-row {
+  background-color: darkblue !important;
+  font-size: larger !important;
+  font-weight: bold !important;
+  color: white !important;
+  text-align: right !important ;
+}
+
+.mat-mdc-header-cell {
+  text-align: center !important ;
+}
+
+.mat-mdc-cell {
+  text-align: left !important ;
+  font-size: large;
+} */
+
+

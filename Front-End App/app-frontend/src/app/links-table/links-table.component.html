@@ -1,0 +1,41 @@
+<table class="links-table">
+  <thead>
+    <tr>
+      <th>Article No.</th>
+      <th>Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let link of list_of_links; index as i; first as isFirst">
+      <td style="text-align: center;">{{i}}.</td>
+      <td><a href="{{link}}">{{link}}</a></td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+<!-- <table mat-table class="mat-table" [dataSource]="dataSource">
+
+
+  <ng-container matColumnDef="Link">
+    <th mat-header-cell *matHeaderCellDef> Top Web Article Links </th>
+    <td mat-cell *matCellDef="let element">
+      <li *ngFor="let link of list_of_links; index as i; first as isFirst">
+
+        <span *ngIf="link">
+          Web Article #{{i}} Link:
+          {{link}}
+
+
+        </span>
+
+      </li>
+
+
+
+    </td>
+  </ng-container>
+
+</table> -->
+

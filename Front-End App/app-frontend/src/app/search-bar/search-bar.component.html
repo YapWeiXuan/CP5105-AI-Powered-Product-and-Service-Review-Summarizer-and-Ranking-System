@@ -1,0 +1,68 @@
+<!-- <p>search-bar works!</p> -->
+<!-- The cdkOverlayOrigin directive tells cdkpackage that this is the element in the DOM showing to user, the triggering element , tells cdk of the position -->
+
+<!-- #overlayPosition is a variable -->
+<!-- A connected overlay is a type of cdk overlay which appears close to some element like a popup menu -->
+<form id = 'test'>
+
+<div
+  class="search-bar-container"
+  cdkOverlayOrigin
+  #overlayPosition="cdkOverlayOrigin"
+  [ngClass]="{'opened mat-elevation-z2': overlayOpen()}"
+>
+
+<!-- With NgClass you can activate CSS conditionally , example
+the above CSS is activated when the overlayOpen() signal becomes true -->
+<!-- (keydown.ENTER)="search(searchInput.value)" -->
+<!-- [disabled]="query_loading()" -->
+
+  <button mat-icon-button>
+    <mat-icon>search</mat-icon>
+  </button>
+  <input #searchInput
+  [value]="searchTerm()"
+  placeholder="Enter Query here"
+  (click)="overlayOpen.set(true)"
+  [disabled]="query_loading()"
+  required
+  (keydown.ENTER)="search(searchInput.value)"
+  [disabled]="query_loading()"
+  />
+
+  <!-- @if (searchTerm()) {
+    <button mat-icon-button class="close-button" (click)="clearSearch()">
+      <mat-icon>close</mat-icon>
+    </button>
+  } -->
+  <!-- <div>
+    <input #searchInput2
+    placeholder="Test"
+    required
+  />
+  </div> -->
+
+</div>
+
+<!-- <div style="margin-top: 10px;margin-left:auto;margin-right:auto;position:center">
+  <span>Number of Web Articles : </span>
+  <input #InputNumber type="number" onkeydown="return false" [value]="articleNumber()" step="1" placeholder="3" min="1" max="10" required>
+  <button (click) ="search(searchInput.value)" style="margin-left: 10px;">Submit Query</button>
+
+</div> -->
+<!-- #searchInput is a variable of the input HTML element, can use value method to get the value entered into the input -->
+
+<!-- Since signals are shared across components, we are going to have a sort of a sub components as well, so best have a service so that can be shared -->
+<ng-template
+  cdkConnectedOverlay
+  [cdkConnectedOverlayOrigin]="overlayPosition"
+  [cdkConnectedOverlayOpen]="overlayOpen()"
+  (overlayOutsideClick)="overlayOpen.set(false)"
+>
+
+  <app-search-overlay></app-search-overlay>
+</ng-template>
+
+
+
+</form>
