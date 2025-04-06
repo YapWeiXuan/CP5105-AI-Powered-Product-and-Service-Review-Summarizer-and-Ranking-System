@@ -1,0 +1,9 @@
+fastapi
+os
+httpx
+pandas
+bs4
+urllib
+requests
+ollama
+pymongo
